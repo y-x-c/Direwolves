@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="direwolves">
+<head>
+  <meta charset="UTF-8">
+  <title>Direwolves</title>
+  <link href="index.css" rel="stylesheet">
+  <link href="node_modules/github-markdown-css/github-markdown.css" rel="stylesheet">
+  <link href="node_modules/highlight.js/styles/github.css" rel="stylesheet">
+  <script>
+    window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.min.js');
+  </script>
+  <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+  <script type="text/javascript" src="node_modules/ace-builds/src-min-noconflict/ace.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript" src="doc.js"></script>
+</head>
+<body ng-controller="mainCtrl">
+<section id="editor-container">
+  <div id="editor" ace ng-model="doc.text"></div>
+</section>
+<section id="markdown-container">
+  <div id="markdown" class="markdown-body" md ng-model="doc.text"></div>
+</section>
+</body>
+</html>

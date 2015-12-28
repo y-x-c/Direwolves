@@ -1,0 +1,37 @@
+/**
+ *
+ * @author Yuxin Chen <chenyuxin.mail@gmail.com>
+ * @created 12/27/15
+ *
+ */
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#editor-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 50vw;
+    bottom: 0;
+}
+
+#editor, #markdown {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 45px;
+}
+
+#markdown-container {
+    position: absolute;
+    top: 0;
+    left: 50vw;
+    bottom: 0;
+    right: 0;
+    overflow: scroll;
+}
