@@ -1,0 +1,9 @@
+{
+  "name": "direwolves-server",
+  "version": "0.1.0",
+  "main": "index.js",
+  "dependencies": {
+    "changesets": "^1.0.0",
+    "diff_match_patch": "^0.1.1"
+  }
+}
