@@ -50,7 +50,8 @@ app.service('Doc', function($interval) {
         var chgset = Changeset.fromDiff(engine.diff_main(A, self.text));
         var data = {
             type: 'submitChgset',
-            chgset: chgset.pack()
+            chgset: chgset.pack(),
+            version: self.version
         };
 
         X = chgset;

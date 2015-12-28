@@ -25,9 +25,6 @@ module.exports = function Client(socket) {
 
     self.onCmd = function(cmd) {
         switch (cmd.type) {
-            case 'create':
-                self.create(cmd);
-                break;
             case 'join':
                 self.join(cmd);
                 break;

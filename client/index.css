@@ -58,7 +58,7 @@ body {
 .conn-box input {
     line-height: 16px;
     display: inline-block;
-    padding: 10px;
+    padding: 8px;
     margin: 5px;
     border-radius: 5px;
     border: 1px solid lightgray;
@@ -71,7 +71,7 @@ body {
     color: gray;
     border-radius: 5px;
     margin: 10px;
-    padding: 5px 10px;
+    padding: 8px 10px;
 }
 
 .conn-box button:hover {
@@ -90,3 +90,8 @@ body {
     z-index: 5;
 }
 
+#logo {
+    border-radius: 100%;
+    height: 80px;
+    margin: 10px;
+}
