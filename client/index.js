@@ -11,6 +11,17 @@ var app = angular.module('direwolves', []);
 
 app.controller('mainCtrl', function($scope, Doc) {
     $scope.doc = Doc;
+
+    $scope.state = 1;
+
+    $scope.join = function() {
+        $scope.state = 0;
+        ipc.send('connect', {
+            host: $scope.host,
+            port: $scope.port
+        });
+        Doc.join($scope.docid);
+    };
 });
 
 app.directive('ace', function($timeout, $interval) {

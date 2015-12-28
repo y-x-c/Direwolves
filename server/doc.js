@@ -56,7 +56,7 @@ module.exports = function Doc() {
         self.clients.push(client);
 
         var data = {
-            type: 'join',
+            type: 'joined',
             text: self.text,
             version: self.version
         };

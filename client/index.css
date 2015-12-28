@@ -35,3 +35,58 @@ body {
     right: 0;
     overflow: scroll;
 }
+
+.conn-box {
+    position: fixed;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    z-index: 6;
+}
+
+.conn-box label {
+    font-size: 14px;
+    color: gray;
+}
+
+.conn-box input {
+    line-height: 16px;
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+.conn-box button {
+    font-size: 14px;
+    background: white;
+    border: 1px solid lightgray;
+    color: gray;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px 10px;
+}
+
+.conn-box button:hover {
+    background: cornflowerblue;
+    color: white;
+}
+
+.bg {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left :0;
+    display: block;
+    z-index: 5;
+}
+

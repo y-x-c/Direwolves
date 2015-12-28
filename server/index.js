@@ -6,7 +6,7 @@
  */
 
 global.clients = [];
-global.docs = [];
+global.docs = {};
 
 var Socket = require('./socket');
 

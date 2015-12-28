@@ -22,6 +22,11 @@ app.service('Doc', function($interval) {
 
     init();
 
+    this.join = function(docid) {
+        send({type: 'join',
+              docid: docid || 0});
+    };
+
     function recvBroadcast(cmd) {
         if(cmd.version != self.version + 1) {
             console.warn('broadcast version error: local', self.version, 'server', cmd.version);
@@ -62,7 +67,7 @@ app.service('Doc', function($interval) {
         X = null;
     }
 
-    function join(cmd) {
+    function joined(cmd) {
         self.version = cmd.version;
         A = self.text = cmd.text;
     }
@@ -77,17 +82,16 @@ app.service('Doc', function($interval) {
                 case 'ACK':
                     recvACK(cmd);
                     break;
-                case 'join':
-                    join(cmd);
+                case 'joined':
+                    joined(cmd);
                     break;
             }
         });
 
-        send({type: 'init'});
 
         var period = $interval(function() {
             submitChgset();
-        }, 1000);
+        }, 500);
     }
 
     function send(cmd) {

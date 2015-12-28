@@ -25,23 +25,27 @@ module.exports = function Client(socket) {
 
     self.onCmd = function(cmd) {
         switch (cmd.type) {
-            case 'init':
-                self.init(cmd);
+            case 'create':
+                self.create(cmd);
+                break;
+            case 'join':
+                self.join(cmd);
                 break;
             case 'submitChgset':
                 self.submitChgset(cmd);
                 break;
+            case 'end':
+                self.end();
+                break;
         }
     };
 
-    self.init = function(cmd) {
-        if(global.docs.length == 0) {
-            var doc = new Doc();
-            global.docs.push(doc);
+    self.join = function(cmd) {
+        if(!(cmd.docid in global.docs)) {
+            global.docs[cmd.docid] = new Doc();
         }
-        global.docs[0].join(self);
-
-        self.doc = global.docs[0];
+        global.docs[cmd.docid].join(self);
+        self.doc = global.docs[cmd.docid];
     };
 
     self.submitChgset = function(cmd) {
@@ -61,7 +65,17 @@ module.exports = function Client(socket) {
         self.socket.sendData(data);
     };
 
-    self.end = function() {
+    self.end = function(idx) {
+        if(!idx) {
+            for (var i = 0; i < global.clients.length; i++) {
+                if (global.clients[i].id == this.id) {
+                    idx = i;
+                    break;
+                }
+            }
+        }
+        global.clients.splice(idx, 1);
         self.doc.leave(self);
+        console.log('close connection with client', this.id);
     };
 };

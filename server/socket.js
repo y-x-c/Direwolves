@@ -60,8 +60,7 @@ module.exports = class Socket {
 
                 for(var i = 0; i < global.clients.length; i++) {
                     if(global.clients[i].id == this.id) {
-                        global.clients[i].end();
-                        global.clients.splice(i, 1);
+                        global.clients[i].end(i);
                         break;
                     }
                 }

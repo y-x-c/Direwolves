@@ -9,7 +9,6 @@
     "diff_match_patch": "^0.1.1",
     "github-markdown-css": "^2.1.1",
     "highlight.js": "^9.0.0",
-    "jquery": "^2.1.4",
     "marked": "git+https://github.com/shovon/marked.git"
   }
 }

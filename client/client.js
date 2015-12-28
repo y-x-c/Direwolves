@@ -13,14 +13,23 @@ const ipc = require('electron').ipcMain;
 module.exports = class Client {
     constructor() {
         var self = this;
-        this.socket = new Socket(this.onCmd);
 
         ipc.on('cmd-send', function(event, data) {
             console.log('send', data);
             data = JSON.stringify(data);
             self.socket.sendData(data);
         });
+    }
 
+    end() {
+        var data = {
+            type: 'end'
+        };
+        this.socket.sendData(JSON.stringify(data));
+    }
+
+    connect(host, port) {
+        this.socket = new Socket(this.onCmd, host, port);
         this.socket.start();
     }
 

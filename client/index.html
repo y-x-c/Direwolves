@@ -15,6 +15,24 @@
   <script type="text/javascript" src="doc.js"></script>
 </head>
 <body ng-controller="mainCtrl">
+
+<div class="bg" ng-show="state"></div>
+<div id="conn" class="conn-box" ng-show="state === 1">
+  <div>
+    <label for="conn-host">服务器地址：</label>
+    <input id="conn-host" ng-model="host" placeholder="127.0.0.1">
+  </div>
+  <div>
+    <label for="conn-port">服务器端口：</label>
+    <input id="conn-port" ng-model="port" placeholder="8888">
+  </div>
+  <div>
+    <label for="doc-id">文档标识符：</label>
+    <input id="doc-id" ng-model="docid" placeholder="0">
+  </div>
+  <button id="conn-join" ng-click="join()">开始编辑</button>
+</div>
+
 <section id="editor-container">
   <div id="editor" ace ng-model="doc.text"></div>
 </section>
